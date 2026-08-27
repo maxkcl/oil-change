@@ -15,3 +15,7 @@
 .whitetxt {
     color: white;
 }
+
+input::placeholder {
+    color: #96aab9;
+}

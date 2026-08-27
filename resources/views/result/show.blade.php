@@ -4,7 +4,9 @@
     </x-slot:title>
 
     <div class="max-w-2xl mx-auto">
-        <h1 class="whitetxt text-3xl font-bold mt-8" style="margin-bottom: 2%">{{ $car->oil_change_needed ? 'You are due for an oil change.' : 'You don\'t need an oil change yet.' }}</h1>
+        <h1 class="whitetxt text-3xl font-bold mt-8" style="margin-bottom: 2%">
+            {{ $car->oil_change_needed ? 'You are due for an oil change.' : 'You don\'t need an oil change yet.' }}
+        </h1>
 
         @if ($five_thousand_km)
             <h3 class="whitetxt text-1xl font-semibold mt-8" style="margin-top: 1%">It's been over 5000 km since your last oil change.</h3>

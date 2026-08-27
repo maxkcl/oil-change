@@ -9,7 +9,7 @@
         <!-- Form -->
         <div class="card bg-base-100 shadow mt-8">
             <div class="card-body">
-                <form method="POST" action="/cars">
+                <form method="POST" action="/check">
                     @csrf
 
                     <p class="form_label">Current Odometer (km)</p>
@@ -18,11 +18,11 @@
                             type="number"
                             name="odometer"
                             placeholder="Current Odometer"
-                            class="input textarea-bordered w-full resize-none @error('message') textarea-error @enderror"
+                            class="input textarea-bordered w-full resize-none @error('odometer') input-error @enderror"
                             required
                         ></input>
 
-                        @error('message')
+                        @error('odometer')
                             <div class="label">
                                 <span class="label-text-alt text-error">{{ $message }}</span>
                             </div>
@@ -35,12 +35,12 @@
                             type="date"
                             name="previous_oil_change_date"
                             placeholder="Date of Previous Oil Change"
-                            class="input textarea-bordered w-full resize-none @error('message') textarea-error @enderror"
+                            class="input textarea-bordered w-full resize-none @error('previous_oil_change_date') input-error @enderror"
                             required
                             max=""{{ now()->subDay()->format('Y-m-d') }}
                         ></input>
 
-                        @error('message')
+                        @error('previous_oil_change_date')
                             <div class="label">
                                 <span class="label-text-alt text-error">{{ $message }}</span>
                             </div>
@@ -53,15 +53,9 @@
                             type="number"
                             name="previous_oil_change_odometer"
                             placeholder="Odometer at Previous Oil Change"
-                            class="input textarea-bordered w-full resize-none @error('message') textarea-error @enderror"
+                            class="input textarea-bordered w-full resize-none"
                             required
                         ></input>
-
-                        @error('message')
-                            <div class="label">
-                                <span class="label-text-alt text-error">{{ $message }}</span>
-                            </div>
-                        @enderror
                     </div>
 
                     <div class="mt-4 flex items-center justify-end">

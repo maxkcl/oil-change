@@ -29,9 +29,9 @@ class CarController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'odometer' => ['required', 'numeric', 'gte:previous_oil_change_odometer'],
+            'odometer' => ['required', 'numeric', 'gte:previous_oil_change_odometer', 'gte:0'],
             'previous_oil_change_date' => ['required', 'date', 'before:today'],
-            'previous_oil_change_odometer' => ['required', 'numeric']
+            'previous_oil_change_odometer' => ['required', 'numeric', 'gte:0']
         ]);
 
         $validated['oil_change_needed'] = ($validated['odometer'] >= $validated['previous_oil_change_odometer'] + 5000) 
@@ -44,7 +44,7 @@ class CarController extends Controller
             'oil_change_needed' => $validated['oil_change_needed']
         ]);
 
-        return redirect()->route('car.show', $car);
+        return redirect()->route('result.show', $car);
     }
 
     /**
@@ -52,7 +52,7 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        return view('car.show', compact('car'));
+        return view('result.show', compact('car'));
     }
 
     /**

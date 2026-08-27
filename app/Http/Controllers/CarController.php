@@ -34,13 +34,17 @@ class CarController extends Controller
             'previous_oil_change_odometer' => ['required', 'numeric']
         ]);
 
-        Car::create([
+        $validated['oil_change_needed'] = ($validated['odometer'] >= $validated['previous_oil_change_odometer'] + 5000) 
+            || ($validated['previous_oil_change_date'] <= now()->subMonths(6));
+
+        $car = Car::create([
             'odometer' => $validated['odometer'],
             'previous_oil_change_date' => $validated['previous_oil_change_date'],
-            'previous_oil_change_odometer' => $validated['previous_oil_change_odometer']
+            'previous_oil_change_odometer' => $validated['previous_oil_change_odometer'],
+            'oil_change_needed' => $validated['oil_change_needed']
         ]);
 
-        return redirect('/');
+        return redirect()->route('car.show', $car);
     }
 
     /**
@@ -48,7 +52,7 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        //
+        return view('car.show', compact('car'));
     }
 
     /**

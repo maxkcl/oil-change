@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('odometer');
             $table->date('previous_oil_change_date');
             $table->integer('previous_oil_change_odometer');
+            $table->boolean('oil_change_needed');
             $table->timestamps();
         });
     }

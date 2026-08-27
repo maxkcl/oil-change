@@ -12,7 +12,7 @@
                 <form method="POST" action="/cars">
                     @csrf
 
-                    <p class="form_label">Current Odometer</p>
+                    <p class="form_label">Current Odometer (km)</p>
                     <div class="form-control w-full" style="margin-bottom: 2.5%">
                         <input 
                             type="number"
@@ -47,7 +47,7 @@
                         @enderror
                     </div>
 
-                    <p class="form_label">Odometer at Previous Oil Change</p>
+                    <p class="form_label">Odometer at Previous Oil Change (km)</p>
                     <div class="form-control w-full">
                         <input
                             type="number"

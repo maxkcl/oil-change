@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class CarController extends Controller
 {
@@ -34,7 +35,7 @@ class CarController extends Controller
             'previous_oil_change_odometer' => ['required', 'numeric', 'gte:0']
         ]);
 
-        $validated['oil_change_needed'] = ($validated['odometer'] >= $validated['previous_oil_change_odometer'] + 5000) 
+        $validated['oil_change_needed'] = ($validated['odometer'] > $validated['previous_oil_change_odometer'] + 5000) 
             || ($validated['previous_oil_change_date'] <= now()->subMonths(6));
 
         $car = Car::create([
@@ -52,7 +53,10 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        return view('result.show', compact('car'));
+        $six_months = Carbon::parse($car->previous_oil_change_date)->addMonths(6)->isPast();
+        $five_thousand_km = $car->odometer > $car->previous_oil_change_odometer + 5000;
+
+        return view('result.show', compact('car', 'six_months', 'five_thousand_km'));
     }
 
     /**

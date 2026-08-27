@@ -29,11 +29,19 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'odometer' => ['required', 'numeric', 'gte:previous_oil_change_odometer', 'gte:0'],
+        $validated = $request->validate(
+            [
+            'odometer' => ['required', 'numeric', 'gte:previous_oil_change_odometer', 'min:0'],
             'previous_oil_change_date' => ['required', 'date', 'before:today'],
-            'previous_oil_change_odometer' => ['required', 'numeric', 'gte:0']
-        ]);
+            'previous_oil_change_odometer' => ['required', 'numeric', 'min:0']
+            ],
+            [
+                'odometer.gte' => 'The current odometer must be greater than or equal to the previous odometer value.',
+                'odometer.min' => 'The odometer must be a positive integer.',
+                'previous_oil_change_date' => 'The date must be a valid date in the past.',
+                'previous_oil_change_odometer' => 'The odometer must be a positive integer.'
+            ]
+        );
 
         $validated['oil_change_needed'] = ($validated['odometer'] > $validated['previous_oil_change_odometer'] + 5000) 
             || ($validated['previous_oil_change_date'] <= now()->subMonths(6));

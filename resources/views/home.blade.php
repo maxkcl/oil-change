@@ -53,9 +53,15 @@
                             type="number"
                             name="previous_oil_change_odometer"
                             placeholder="Odometer at Previous Oil Change"
-                            class="input textarea-bordered w-full resize-none"
+                            class="input textarea-bordered w-full resize-none @error('previous_oil_change_odometer') input-error @enderror""
                             required
                         ></input>
+
+                        @error('previous_oil_change_odometer')
+                            <div class="label">
+                                <span class="label-text-alt text-error">{{ $message }}</span>
+                            </div>
+                        @enderror
                     </div>
 
                     <div class="mt-4 flex items-center justify-end">

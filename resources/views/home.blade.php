@@ -12,7 +12,7 @@
                 <form method="POST" action="/cars">
                     @csrf
 
-                    <p style="margin-left: 1%; margin-bottom: 2%">Current Odometer</p>
+                    <p class="form_label">Current Odometer</p>
                     <div class="form-control w-full" style="margin-bottom: 2.5%">
                         <input 
                             type="number"
@@ -29,7 +29,7 @@
                         @enderror
                     </div>
 
-                    <p style="margin-left: 1%; margin-bottom: 2%">Date of Previous Oil Change</p>
+                    <p class="form_label">Date of Previous Oil Change</p>
                     <div class="form-control w-full" style="margin-bottom: 2.5%">
                         <input
                             type="date"
@@ -37,6 +37,7 @@
                             placeholder="Date of Previous Oil Change"
                             class="input textarea-bordered w-full resize-none @error('message') textarea-error @enderror"
                             required
+                            max=""{{ now()->subDay()->format('Y-m-d') }}
                         ></input>
 
                         @error('message')
@@ -46,7 +47,7 @@
                         @enderror
                     </div>
 
-                    <p style="margin-left: 1%; margin-bottom: 2%">Odometer at Previous Oil Change</p>
+                    <p class="form_label">Odometer at Previous Oil Change</p>
                     <div class="form-control w-full">
                         <input
                             type="number"

@@ -4,7 +4,7 @@
     </x-slot:title>
 
     <div class="max-w-2xl mx-auto">
-        <h1 class="text-3xl font-bold mt-8">Oil Change Checker</h1>
+        <h1 class="whitetxt text-3xl font-bold mt-8">Oil Change Checker</h1>
 
         <!-- Form -->
         <div class="card bg-base-100 shadow mt-8">
@@ -18,7 +18,7 @@
                             type="number"
                             name="odometer"
                             placeholder="Current Odometer"
-                            class="input textarea-bordered w-full resize-none @error('odometer') input-error @enderror"
+                            class="input input-bordered w-full resize-none @error('odometer') input-error @enderror"
                             required
                         ></input>
 
@@ -35,7 +35,7 @@
                             type="date"
                             name="previous_oil_change_date"
                             placeholder="Date of Previous Oil Change"
-                            class="input textarea-bordered w-full resize-none @error('previous_oil_change_date') input-error @enderror"
+                            class="input input-bordered w-full resize-none @error('previous_oil_change_date') input-error @enderror"
                             required
                             max=""{{ now()->subDay()->format('Y-m-d') }}
                         ></input>
@@ -53,7 +53,7 @@
                             type="number"
                             name="previous_oil_change_odometer"
                             placeholder="Odometer at Previous Oil Change"
-                            class="input textarea-bordered w-full resize-none @error('previous_oil_change_odometer') input-error @enderror""
+                            class="input input-bordered w-full resize-none @error('previous_oil_change_odometer') input-error @enderror"
                             required
                         ></input>
 

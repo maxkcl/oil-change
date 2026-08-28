@@ -14,13 +14,20 @@ composer install
 npm install
 ```
 
-Step 3. Initialize database
+Step 3. Create .env and generate app key
+```bash
+copy .env.example .env
+
+php artisan key:generate
+```
+
+Step 4. Initialize database
 ```bash
 php artisan migrate
 ```
 In case you are prompted to confirm your decision and create a SQLite database, say yes.
 
-Step 4. Run application
+Step 5. Run application
 ```bash
 composer run dev
 ```

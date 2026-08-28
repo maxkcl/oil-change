@@ -15,7 +15,7 @@
 <body class="min-h-screen flex flex-col bg-base-200 font-sans">
     <nav class="navbar bg-base-100">
         <div class="navbar-start">
-            <a href="/" class="whitetxt btn btn-ghost text-xl">Max Clements</a>
+            <a href="/" class="text-white btn btn-ghost text-xl">Max Clements</a>
         </div>
     </nav>
 

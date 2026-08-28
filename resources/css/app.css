@@ -8,12 +8,8 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-.form_label {
+.form-label {
     margin-bottom: 2%;
-}
-
-.whitetxt {
-    color: white;
 }
 
 input::placeholder {

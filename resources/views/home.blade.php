@@ -4,7 +4,7 @@
     </x-slot:title>
 
     <div class="max-w-2xl mx-auto">
-        <h1 class="whitetxt text-3xl font-bold mt-8">Oil Change Checker</h1>
+        <h1 class="text-white text-3xl font-bold mt-8">Oil Change Checker</h1>
 
         <!-- Form -->
         <div class="card bg-base-100 shadow mt-8">
@@ -12,7 +12,7 @@
                 <form method="POST" action="/check">
                     @csrf
 
-                    <p class="whitetxt form_label">Current Odometer (km)</p>
+                    <p class="text-white form-label">Current Odometer (km)</p>
                     <div class="form-control w-full" style="margin-bottom: 2.5%">
                         <input 
                             type="number"
@@ -29,7 +29,7 @@
                         @enderror
                     </div>
 
-                    <p class="whitetxt form_label">Date of Previous Oil Change</p>
+                    <p class="text-white form-label">Date of Previous Oil Change</p>
                     <div class="form-control w-full" style="margin-bottom: 2.5%">
                         <input
                             type="date"
@@ -46,7 +46,7 @@
                         @enderror
                     </div>
 
-                    <p class="whitetxt form_label">Odometer at Previous Oil Change (km)</p>
+                    <p class="text-white form-label">Odometer at Previous Oil Change (km)</p>
                     <div class="form-control w-full">
                         <input
                             type="number"
